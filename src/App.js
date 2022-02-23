@@ -3,6 +3,7 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Login from "./Pages/Login";
 import Home from './Pages/Home';
+import './styles.css';
 
 function App() {
   return (

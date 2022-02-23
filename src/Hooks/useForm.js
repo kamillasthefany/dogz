@@ -10,7 +10,7 @@ const validacao = {
 const useForm = (type) => {
 
   const [value, setValue] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
 
   function validar(value) {
     if (type === false) return true;
