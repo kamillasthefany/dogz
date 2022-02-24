@@ -8,7 +8,7 @@ import { UserContext } from '../../Contexts/UserContext';
 
 const Header = () => {
 
-  const { user } = useContext(UserContext);
+  const { user, userLogout } = useContext(UserContext);
 
   return (
     <header className={styles.header}>
@@ -16,7 +16,12 @@ const Header = () => {
         <div className={styles.nav}>
           <Link to="/" aria-label='Dogz - Home' style={styles.log}><Dogs /></Link>
           {user ?
-            (<Link to="/conta" className={styles.login}>{user.nome}</Link>)
+            (
+              <Link to="/conta" className={styles.login}>
+                {user.nome}
+                <button onClick={userLogout}>Sair</button>
+              </Link>
+            )
             :
             (<Link to="/login" className={styles.login}>Login</Link>)
           }
