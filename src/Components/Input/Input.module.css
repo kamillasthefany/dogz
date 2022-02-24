@@ -2,14 +2,14 @@
   margin-bottom: 1rem;
 }
 
-.input {
+.input{
   border: 1px solid #eee;
   display: block;
   width: 100%;
   font-size: 1rem;
   padding: 0.8rem;
   border-radius: 0.4rem;
-  background: #eee;
+  background: #eee !important;
   transition: 0.2s;
 }
 
