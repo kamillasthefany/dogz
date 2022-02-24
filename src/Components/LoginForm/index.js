@@ -33,11 +33,11 @@ const LoginForm = () => {
         {loading ? <Button disabled>Carregando...</Button> : <Button>Entrar</Button>}
         {error && <Error mensagem={error} />}
       </form>
-      <Link className={styles.senha} to="/perdeu">Esqueceu a senha?</Link>
+      <Link className={styles.senha} to="/login/perdeu">Esqueceu a senha?</Link>
       <div className={styles.cadastro}>
         <h2 className={styles.subtitle}>Cadastre-se</h2>
         <p>Ainda não possui conta? Cadastre-se.</p>
-        <Link className={styleBtn.button} to="/criar">Cadastro</Link>
+        <Link className={styleBtn.button} to="/login/criar">Cadastro</Link>
       </div>
     </section>
   );
