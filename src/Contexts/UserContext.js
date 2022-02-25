@@ -17,7 +17,6 @@ export const UserStorage = ({ children }) => {
       const token = window.localStorage.getItem('token');
 
       if (token) {
-
         try {
           setError(null);
           setLoading(true);
@@ -34,7 +33,9 @@ export const UserStorage = ({ children }) => {
         finally {
           setLoading(false);
         }
-
+      }
+      else {
+        setLogin(false);
       }
     }
 
