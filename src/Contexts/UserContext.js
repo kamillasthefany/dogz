@@ -15,7 +15,6 @@ export const UserStorage = ({ children }) => {
   useEffect(() => {
     async function autoLogin() {
       const token = window.localStorage.getItem('token');
-
       if (token) {
         try {
           setError(null);
@@ -24,23 +23,17 @@ export const UserStorage = ({ children }) => {
           const response = await fetch(url, options);
           if (!response.ok) throw new Error('Token inválido');
           await getUser(token);
-          navigate('/conta');
-        }
-        catch (erro) {
-          setError(true);
+        } catch (err) {
           userLogout();
-        }
-        finally {
+        } finally {
           setLoading(false);
         }
-      }
-      else {
+      } else {
         setLogin(false);
       }
     }
-
     autoLogin();
-  }, []);
+  }, [userLogout]);
 
   async function userLogout() {
     setUser(null);
@@ -58,8 +51,6 @@ export const UserStorage = ({ children }) => {
 
     setUser(usuario);
     setLogin(true);
-
-    console.log('log context', usuario);
   }
 
   async function userLogin(username, password) {

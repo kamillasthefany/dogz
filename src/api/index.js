@@ -4,23 +4,23 @@ export function TOKEN_POST(body) {
     options: {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
-    }
-  }
+    },
+  };
 }
 
 export function TOKEN_VALIDATE_POST(token) {
   return {
-    url: process.env.REACT_APP_API + '/jwt-auth/v1/token',
+    url: process.env.REACT_APP_API + '/jwt-auth/v1/token/validate',
     options: {
       method: 'POST',
       headers: {
         Authorization: 'Bearer ' + token,
-      }
-    }
-  }
+      },
+    },
+  };
 }
 
 export function USER_GET(token) {
@@ -31,8 +31,8 @@ export function USER_GET(token) {
       headers: {
         Authorization: 'Bearer ' + token,
       },
-    }
-  }
+    },
+  };
 }
 
 export function USER_POST(body) {
@@ -41,22 +41,32 @@ export function USER_POST(body) {
     options: {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
-    }
-  }
+    },
+  };
 }
 
-export function PHOTO_POST(formData, body) {
+export function PHOTO_POST(formData, token) {
   return {
     url: process.env.REACT_APP_API + '/api/photo',
     options: {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        Authorization: 'Bearer ' + token,
       },
       body: formData,
-    }
-  }
+    },
+  };
+}
+
+export function PHOTOS_GET({ page, total, user }) {
+  return {
+    url: `${process.env.REACT_APP_API}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
 }
