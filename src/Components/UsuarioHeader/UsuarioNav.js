@@ -14,7 +14,7 @@ const UsuarioNav = () => {
   const { userLogout } = useContext(UserContext);
   const mobile = useMedia('(max-width: 40rem)');
 
-  const [pathname] = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     setMenuMobile(false);

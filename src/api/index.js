@@ -47,3 +47,16 @@ export function USER_POST(body) {
     }
   }
 }
+
+export function PHOTO_POST(formData, body) {
+  return {
+    url: process.env.REACT_APP_API + '/api/photo',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: formData,
+    }
+  }
+}
