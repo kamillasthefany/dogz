@@ -1,3 +1,5 @@
+export const API_URL = 'https://dogsapi.origamid.dev/json';
+
 export function TOKEN_POST(body) {
   return {
     url: process.env.REACT_APP_API + '/jwt-auth/v1/token',
@@ -63,7 +65,17 @@ export function PHOTO_POST(formData, token) {
 
 export function PHOTOS_GET({ page, total, user }) {
   return {
-    url: `${process.env.REACT_APP_API}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
+    url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
+    },
+  };
+}
+
+export function PHOTO_GET(id) {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
     options: {
       method: 'GET',
       cache: 'no-store',

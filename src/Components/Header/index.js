@@ -8,18 +8,17 @@ import { UserContext } from '../../Contexts/UserContext';
 
 const Header = () => {
 
-  const { user, userLogout } = useContext(UserContext);
+  const { data, userLogout } = useContext(UserContext);
 
   return (
     <header className={styles.header}>
       <nav className={st.container}>
         <div className={styles.nav}>
           <Link to="/" aria-label='Dogz - Home' style={styles.log}><Dogs /></Link>
-          {user ?
+          {data ?
             (
               <Link to="/conta" className={styles.login}>
-                {user.nome}
-                <button onClick={userLogout}>Sair</button>
+                {data.nome}
               </Link>
             )
             :
