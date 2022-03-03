@@ -9,10 +9,12 @@ const Feed = () => {
 
   return (
     <div>
-      <FeedModal photo={modalPhoto} />
+      {modalPhoto && (
+        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
+      )}
       <FeedPhotos setModalPhoto={setModalPhoto} />
     </div>
-  )
+  );
 }
 
 export default Feed
