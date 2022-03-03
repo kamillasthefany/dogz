@@ -19,7 +19,7 @@ const FeedPhotos = ({ setModalPhoto }) => {
     fetchPhotos();
   }, [request]);
 
-  if (error) return <Error error={error} />;
+  if (error) return <Error mensagem={error} />;
   if (loading) return <Loading />;
   if (data)
     return (
